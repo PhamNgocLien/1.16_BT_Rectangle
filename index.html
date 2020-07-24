@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rectangle</title>
+</head>
+<body>
+<canvas id="myCanvas" width="1368px" height="768px" style="border:1px solid #d3d3d3;">
+<script>
+    let Rectangle = function (length, width) {
+        this.length = length;
+        this.width = width;
+        this.getLength = function () {
+            return length;
+        }
+        this.setLength = function (length) {
+            return this.length = length;
+        }
+        this.getWidth = function () {
+            return width;
+        }
+        this.setWidth = function (width) {
+            return this.width = width;
+        }
+        this.getAcreage = function () {
+            return length * width;
+        }
+        this.getPerimeter = function () {
+            return 2 * (length + width);
+        }
+        this.setRectangle = function (length,width) {
+            this.length = length;
+            this.width = width;
+            this.acreage = length * width;
+            this.perimeter = 2 * (length + width);
+        }
+        this.toString = function () {
+            return [this.length,this.width,this.acreage,this.perimeter];
+        }
+    }
+
+    let rectangle = new Rectangle(100,50);
+    let length = rectangle.getLength();
+    let width = rectangle.getWidth();
+    let acreage = rectangle.getAcreage();
+    let perimeter = rectangle.getPerimeter();
+    alert("Hình chữ nhật 1 có chiều dài là: " + length + ", chiều rộng là: " + width + " , diện tích là: " + acreage + " , chu vi là: " + perimeter);
+
+    rectangle.setRectangle(50,30);
+    let length2 = rectangle.toString()[0];
+    let width2 = rectangle.toString()[1];
+    let acreage2 = rectangle.toString()[2];
+    let perimeter2 = rectangle.toString()[3];
+    alert("Hình chữ nhật 2 có chiều dài là: " + length2 + ", chiều rộng là: " + width2 + " , diện tích là: " + acreage2 + " , chu vi là: " + perimeter2);
+
+    function createRectangle(length,width) {
+        var ctx = document.getElementById("myCanvas").getContext("2d");
+        ctx.fillStyle = '#FF0000';
+        ctx.fillRect(100,100,length,width);
+    }
+    createRectangle(length,width);
+</script>
+</body>
+</html>
